@@ -13,7 +13,23 @@ int main() {
   printf("What bit:\n");
   /*Scan two integers (representing number and a position)
   Print the bit in this position. */
-  
+
+  int num, position;
+  printf("Please enter a number:\n");
+  scanf("%d", &num);
+  printf("Please enter a position:\n");
+  scanf("%d", &position);
+
+  int posRepresentative = 1;
+  posRepresentative = posRepresentative << position; // moving the bit 1 to the indx matching the 'position'
+  int bitInPosition = num & posRepresentative; 
+  /* comparing the two numbers, so if the bit in num[position] is 1 - we'll get "1" in the bitInPosition[position],
+  and if it's 0 - we'll get "0" in the bitInPosition[position] instead. */
+  bitInPosition = bitInPosition >> position; // moving the bit back so the value will be 0/1
+  printf("The bit in position %d of number %d is: %d", num, position, bitInPosition);
+
+
+
   // Set bit
   printf("\nSet bit:\n");
   /*Scan two integers (representing number and a position)
@@ -21,6 +37,20 @@ int main() {
   Print the output
   Now make sure it's "off" (equal to 0)
   Print the output */
+
+  printf("Please enter a number:\n");
+  scanf("%d", &num);
+  printf("Please enter a position:\n");
+  scanf("%d", &position);
+
+
+
+
+
+
+
+
+
 
   // Toggle bit
   printf("\nToggle bit:\n");
