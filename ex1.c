@@ -62,20 +62,17 @@ int main() {
   /*Scan two integers (representing number and a position)
   Toggle the bit in this position
   Print the new number */
-  long long num, position;
   
   printf("Please enter a number:\n");
   scanf("%d", &num);
   printf("Please enter a position:\n");
   scanf("%d", &position);
 
-  long long posRepresentative = 1 << position;
-  long long numWithBitOn = num | posRepresentative;
-  long long numWithBitOff = num & (~posRepresentative);
-  long long sumNums = numWithBitOn + numWithBitOff;
-  printf("numWithBitOn 123445: %d\n", numWithBitOn);
-  printf("numWithBitOff: %d\n", numWithBitOff);
-  printf("Number with bit %d toggled: %d\n", position, sumNums);
+  posRepresentative = 1 << position;
+  int toggledNum = num ^ posRepresentative; // For i!=position, all the bits in "num" remain for toggledNum
+  // since posRepresentative[i]=0. posRepresentative[position]=1, therefore If num[position]=0 ==> toggledNum[position]=1
+  // and if num[position]=1 ==> toggledNum[position]=0.
+  printf("Number with bit %d toggled: %d\n", position, toggledNum);
 
 
 
