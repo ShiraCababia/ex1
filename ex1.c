@@ -50,7 +50,7 @@ int main() {
 
   int reversedPosRep = ~posRepresentative;
   int numWithBitOff = num & reversedPosRep; 
-  // Since all bites in reversedPosRep are now valued to 1 - except reversedPosRep[position] -
+  // Since all bits in reversedPosRep are now valued to 1 - except reversedPosRep[position] -
   // the numWithBitOff[i] (i!=position) will be the same as num[i].
   // And since reversedPosRep[position]=0, no matter what num[position] is - the numWithBitOff[position]=0.
   printf("Number with bit %d set to 0: %d", position, numWithBitOff);
@@ -62,7 +62,23 @@ int main() {
   /*Scan two integers (representing number and a position)
   Toggle the bit in this position
   Print the new number */
+  long long num, position;
   
+  printf("Please enter a number:\n");
+  scanf("%d", &num);
+  printf("Please enter a position:\n");
+  scanf("%d", &position);
+
+  long long posRepresentative = 1 << position;
+  long long numWithBitOn = num | posRepresentative;
+  long long numWithBitOff = num & (~posRepresentative);
+  long long sumNums = numWithBitOn + numWithBitOff;
+  printf("numWithBitOn 123445: %d\n", numWithBitOn);
+  printf("numWithBitOff: %d\n", numWithBitOff);
+  printf("Number with bit %d toggled: %d\n", position, sumNums);
+
+
+
   // Even - Odd
   printf("\nEven - Odd:\n");
   /* Scan an integer
