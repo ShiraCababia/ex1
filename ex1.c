@@ -43,12 +43,17 @@ int main() {
   printf("Please enter a position:\n");
   scanf("%d", &position);
 
+  posRepresentative = 1 << position;
+  int numWithBitOn = num | posRepresentative; // The posRepresentative[position] is 1, so no matter what 
+  // num[position] bit is, we'll get numWithBitOn[position] = "1".
+  printf("Number with bit %d set to 1: %d\n", position, numWithBitOn);
 
-
-
-
-
-
+  int reversedPosRep = ~posRepresentative;
+  int numWithBitOff = num & reversedPosRep; 
+  // Since all bites in reversedPosRep are now valued to 1 - except reversedPosRep[position] -
+  // the numWithBitOff[i] (i!=position) will be the same as num[i].
+  // And since reversedPosRep[position]=0, no matter what num[position] is - the numWithBitOff[position]=0.
+  printf("Number with bit %d set to 0: %d", position, numWithBitOff);
 
 
 
