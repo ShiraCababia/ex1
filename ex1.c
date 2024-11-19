@@ -1,7 +1,7 @@
 /******************
-Name:
-ID:
-Assignment:
+Name: Shira Cababia
+ID: 326153590
+Assignment: ex1
 *******************/
 #include <stdio.h>
 
@@ -19,7 +19,6 @@ int main() {
   scanf("%d", &num);
   printf("Please enter a position:\n");
   scanf("%d", &position);
-
   int posRepresentative = 1;
   posRepresentative = posRepresentative << position; // moving the bit 1 to the indx matching the 'position'
   int bitInPosition = num & posRepresentative; 
@@ -42,12 +41,10 @@ int main() {
   scanf("%d", &num);
   printf("Please enter a position:\n");
   scanf("%d", &position);
-
   posRepresentative = 1 << position;
   int numWithBitOn = num | posRepresentative; /* The posRepresentative[position] is 1, so no matter what 
   num[position] bit is, we'll get numWithBitOn[position] = "1". */
   printf("Number with bit %d set to 1: %d\n", position, numWithBitOn);
-
   int reversedPosRep = ~posRepresentative;
   int numWithBitOff = num & reversedPosRep; 
   /* Since all bits in reversedPosRep are now valued to 1 - except reversedPosRep[position] -
@@ -67,7 +64,6 @@ int main() {
   scanf("%d", &num);
   printf("Please enter a position:\n");
   scanf("%d", &position);
-
   posRepresentative = 1 << position;
   int toggledNum = num ^ posRepresentative; /* For i!=position, all the bits in "num" remain for toggledNum
   since posRepresentative[i]=0. posRepresentative[position]=1, therefore If num[position]=0 ==> toggledNum[position]=1
@@ -80,6 +76,7 @@ int main() {
   printf("\nEven - Odd:\n");
   /* Scan an integer
   If the number is even - print 1, else - print 0. */
+
   printf("Please enter a number:\n");
   scanf("%d", &num);
   posRepresentative = ~1;
@@ -96,8 +93,23 @@ int main() {
   /* Scan two integers in octal base
   sum them up and print the result in hexadecimal base
   Print only 4 bits, in positions: 3,5,7,11 in the result. */
+  int num1, num2, sum;
+  printf("Please enter the first number (octal):\n");
+  scanf("%o", &num1);
+  printf("Please enter the second number (octal):\n");
+  scanf("%o", &num2);
+  sum = num1 + num2;
+  printf("The sum is hexadecimal:%X\n", sum);
+  int bitInPosition3 = sum & (1 << 3);
+  bitInPosition3 = bitInPosition3 >> 3; // Represent the bit in sum[3], by doing the "&" between that and 1<<3.
+  int bitInPosition5 = sum & (1 << 5);
+  bitInPosition5 = bitInPosition5 >> 5;
+  int bitInPosition7 = sum & (1 << 7);
+  bitInPosition7 = bitInPosition7 >> 7;
+  int bitInPosition11 = sum & (1 << 11);
+  bitInPosition11 = bitInPosition11 >> 11;
+  printf("The 3,5,7,11 bits are:%d%d%d%d\n", bitInPosition3, bitInPosition5, bitInPosition7, bitInPosition11);
 
   printf("Bye!\n");
-  
   return 0;
 }
