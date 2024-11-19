@@ -25,7 +25,7 @@ int main() {
   /* comparing the two numbers, so if the bit in num[position] is 1 - we'll get "1" in the bitInPosition[position],
   and if it's 0 - we'll get "0" in the bitInPosition[position] instead. */
   bitInPosition = bitInPosition >> position; // moving the bit back so the value will be 0/1
-  printf("The bit in position %d of number %d is: %d", num, position, bitInPosition);
+  printf("The bit in position %d of number %d is: %d\n", num, position, bitInPosition);
 
 
 
@@ -50,7 +50,7 @@ int main() {
   /* Since all bits in reversedPosRep are now valued to 1 - except reversedPosRep[position] -
   the numWithBitOff[i] (i!=position) will be the same as num[i].
   And since reversedPosRep[position]=0, no matter what num[position] is - the numWithBitOff[position]=0. */
-  printf("Number with bit %d set to 0: %d", position, numWithBitOff);
+  printf("Number with bit %d set to 0: %d\n", position, numWithBitOff);
 
 
 
