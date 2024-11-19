@@ -44,15 +44,15 @@ int main() {
   scanf("%d", &position);
 
   posRepresentative = 1 << position;
-  int numWithBitOn = num | posRepresentative; // The posRepresentative[position] is 1, so no matter what 
-  // num[position] bit is, we'll get numWithBitOn[position] = "1".
+  int numWithBitOn = num | posRepresentative; /* The posRepresentative[position] is 1, so no matter what 
+  num[position] bit is, we'll get numWithBitOn[position] = "1". */
   printf("Number with bit %d set to 1: %d\n", position, numWithBitOn);
 
   int reversedPosRep = ~posRepresentative;
   int numWithBitOff = num & reversedPosRep; 
-  // Since all bits in reversedPosRep are now valued to 1 - except reversedPosRep[position] -
-  // the numWithBitOff[i] (i!=position) will be the same as num[i].
-  // And since reversedPosRep[position]=0, no matter what num[position] is - the numWithBitOff[position]=0.
+  /* Since all bits in reversedPosRep are now valued to 1 - except reversedPosRep[position] -
+  the numWithBitOff[i] (i!=position) will be the same as num[i].
+  And since reversedPosRep[position]=0, no matter what num[position] is - the numWithBitOff[position]=0. */
   printf("Number with bit %d set to 0: %d", position, numWithBitOff);
 
 
@@ -69,9 +69,9 @@ int main() {
   scanf("%d", &position);
 
   posRepresentative = 1 << position;
-  int toggledNum = num ^ posRepresentative; // For i!=position, all the bits in "num" remain for toggledNum
-  // since posRepresentative[i]=0. posRepresentative[position]=1, therefore If num[position]=0 ==> toggledNum[position]=1
-  // and if num[position]=1 ==> toggledNum[position]=0.
+  int toggledNum = num ^ posRepresentative; /* For i!=position, all the bits in "num" remain for toggledNum
+  since posRepresentative[i]=0. posRepresentative[position]=1, therefore If num[position]=0 ==> toggledNum[position]=1
+  and if num[position]=1 ==> toggledNum[position]=0. */
   printf("Number with bit %d toggled: %d\n", position, toggledNum);
 
 
@@ -80,7 +80,17 @@ int main() {
   printf("\nEven - Odd:\n");
   /* Scan an integer
   If the number is even - print 1, else - print 0. */
-  
+  printf("Please enter a number:\n");
+  scanf("%d", &num);
+  posRepresentative = ~1;
+  int outputNum = ~ (num | posRepresentative);
+  printf("%d\n", outputNum);
+  /*The ~1 contains LSB=0 and "1" for the rest of the bits. The LSB affects on whether the number is even 
+  (0==>even, 1==>odd). With the "NOR" we'll get 1 if the num is even and its LSB=0 (0nor0=1),
+  and when the LSB of num is "1" we'll get 0 (0nor1=0)*/
+
+
+
   // 3, 5, 7, 11
   printf("\n3, 5, 7, 11:\n");
   /* Scan two integers in octal base
