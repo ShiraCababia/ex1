@@ -25,7 +25,7 @@ int main() {
   /* comparing the two numbers, so if the bit in num[position] is 1 - we'll get "1" in the bitInPosition[position],
   and if it's 0 - we'll get "0" in the bitInPosition[position] instead. */
   bitInPosition = bitInPosition >> position; // moving the bit back so the value will be 0/1
-  printf("The bit in position %d of number %d is: %d\n", num, position, bitInPosition);
+  printf("The bit in position %d of number %d is: %d\n", position, num, bitInPosition);
 
 
 
@@ -99,7 +99,7 @@ int main() {
   printf("Please enter the second number (octal):\n");
   scanf("%o", &num2);
   sum = num1 + num2;
-  printf("The sum is hexadecimal:%X\n", sum);
+  printf("The sum in hexadecimal: %X\n", sum);
   int bitInPosition3 = sum & (1 << 3);
   bitInPosition3 = bitInPosition3 >> 3; // Represent the bit in sum[3], by doing the "&" between that and 1<<3.
   int bitInPosition5 = sum & (1 << 5);
@@ -108,7 +108,7 @@ int main() {
   bitInPosition7 = bitInPosition7 >> 7;
   int bitInPosition11 = sum & (1 << 11);
   bitInPosition11 = bitInPosition11 >> 11;
-  printf("The 3,5,7,11 bits are:%d%d%d%d\n", bitInPosition3, bitInPosition5, bitInPosition7, bitInPosition11);
+  printf("The 3,5,7,11 bits are: %d%d%d%d\n", bitInPosition3, bitInPosition5, bitInPosition7, bitInPosition11);
 
   printf("Bye!\n");
   return 0;
